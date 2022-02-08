@@ -19,11 +19,6 @@ prev1 = 0
 maximum = 0
     // -
 
-// change this to the bpm as in mapper                                                          
-//bpm = 140
-
-
-
 
 folder = "F:\\Steam\\steamapps\\common\\Beat Saber\\Beat Saber_Data\\CustomWIPLevels\\test\\" // folder to read from
 soundFile = folder + "song.mp3" // sound file to sample

@@ -20,9 +20,9 @@ maximum = 0
     // -
 
 
-folder = "F:\\Steam\\steamapps\\common\\Beat Saber\\Beat Saber_Data\\CustomWIPLevels\\test\\" // folder to read from
+folder = "F:\\Steam\\steamapps\\common\\Beat Saber\\Beat Saber_Data\\CustomWIPLevels\\bedroom community\\" // folder to read from
 soundFile = folder + "song.mp3" // sound file to sample
-mapFile = folder + "ExpertPlusStandard.dat" // map file to read
+mapFile = folder + "ExpertPlusLawless.dat" // map file to read
 writeFile = folder + "ExpertPlusLawless.dat" // map file to write to, advised to use a different name than the one you read from, as a backup (it might break.)
 if (!checkFiles()) {
     throw new Error(`sound file does not exist`)
@@ -43,8 +43,9 @@ console.log(`bpm found to be ${bpm}`)
 
 
 console.log(`reading map\nsoundFile: ${soundFile}\nmapFile: ${mapFile}`)
-replaceEvents([4], [4], [12], [11], 12, 0.05, 1, 0.2, 0.8)
+    //replaceEvents([0], [0], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10, 0.05, 0.4, 0.2, 1)
     // for the default environment, the back light is kinda messed up - in chromapper, light 12 is the left one, and 11 is the right, while its the opposite in game
+replaceEvents([4], [4], [12], [11], 12, 0.05, 1, 0.2, 0.8)
 
 
 
@@ -322,7 +323,7 @@ function removeEventsForType(types, lightIDs, maximumLightID) {
 
     newLightID = []
 
-    newEvents = []
+    newEvents = map._events
     toPush = {}
     for (i = 0; i < types; i++) {
         type = types[i]

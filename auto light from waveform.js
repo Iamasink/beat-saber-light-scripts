@@ -20,9 +20,9 @@ maximum = 0
     // -
 
 
-folder = "F:\\Steam\\steamapps\\common\\Beat Saber\\Beat Saber_Data\\CustomWIPLevels\\bedroom community\\" // folder to read from
+folder = "C:\\Program Files\\Steam\\steamapps\\common\\Beat Saber\\Beat Saber_Data\\CustomWIPLevels\\[map folder]\\" // folder to read from, remember double slashes
 soundFile = folder + "song.mp3" // sound file to sample
-mapFile = folder + "ExpertPlusLawless.dat" // map file to read
+mapFile = folder + "ExpertPlusStandard.dat" // map file to read
 writeFile = folder + "ExpertPlusLawless.dat" // map file to write to, advised to use a different name than the one you read from, as a backup (it might break.)
 if (!checkFiles()) {
     throw new Error(`sound file does not exist`)
@@ -45,14 +45,21 @@ console.log(`bpm found to be ${bpm}`)
 console.log(`reading map\nsoundFile: ${soundFile}\nmapFile: ${mapFile}`)
     //replaceEvents([0], [0], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10, 0.05, 0.4, 0.2, 1)
     // for the default environment, the back light is kinda messed up - in chromapper, light 12 is the left one, and 11 is the right, while its the opposite in game
-replaceEvents([4], [4], [12], [11], 12, 0.05, 1, 0.2, 0.8)
+replaceEvents([4], [4], [12], [11], 12, 12, 0.05, 1, 0.2, 0.8)
 
 
 
 
 
-/// remove events for type
-function replaceEvents(channel0ReplaceTypes, channel1ReplaceTypes, channel0LightIDs, channel1LightIDs, replaceMaximumLightID, sampleIntervalInSeconds, colorR, colorG, colorB) {
+// channel0ReplaceTypes - array of types to replace for channel 0
+// channel1ReplaceTypes - array of types to replace for channel 1
+// channel0LightIDs - array of lightIDs to replace for channel 0
+// channel1LightIDs - array of lightIDs to replace for channel 1
+// channel0ReplaceMaximumLightID - the maximum lightID to replace for channel 0, set it to the highest lightid for the type
+// channel1ReplaceMaximumLightID - the maximum lightID to replace for channel 1, ''
+// sampleIntervalInSeconds - the interval to sample audio at, in seconds (0.05 is 50ms)
+// colorR,G,B - the color to replace the light with
+function replaceEvents(channel0ReplaceTypes, channel1ReplaceTypes, channel0LightIDs, channel1LightIDs, channel0ReplaceMaximumLightID, channel1ReplaceMaximumLightID, sampleIntervalInSeconds, colorR, colorG, colorB) {
 
     replaceLightIDs = channel0LightIDs.concat(channel1LightIDs)
     replaceTypes = channel0ReplaceTypes.concat(channel1ReplaceTypes)
@@ -60,7 +67,8 @@ function replaceEvents(channel0ReplaceTypes, channel1ReplaceTypes, channel0Light
 
     console.log(map)
 
-    removeEventsForType(replaceTypes, replaceLightIDs, replaceMaximumLightID)
+    removeEventsForType(channel0ReplaceTypes, channel0LightIDs, channel0ReplaceMaximumLightID)
+    removeEventsForType(channel1ReplaceTypes, channel1LightIDs, channel1ReplaceMaximumLightID)
 
     promise = decodeAudio(soundFile)
     promise.then(audio => {

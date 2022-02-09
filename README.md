@@ -13,6 +13,8 @@ this is for chroma btw dont try and like do some funky stuff with not chroma cuz
 # how to use it??????
 uh ok so it should just workkkk but like you have to change some stuff<br />
 IM so sorry if this is incomprehensiahjdsfkl
+you gotta download the zip then extract it and you can run the files with node in command line `node.exe "auto light from waveform.js`, or maybe you can run it in vscode but like, its slower i think.
+is there a better way to do this?? idk fuck you 
 
 Hi<br />
 the `auto light from waveform.js` file has stuff at the top u can change them and then it does the stuff!!!!!! yayu!!!!! yay!!!!!!!!!!!!<br/>
@@ -26,7 +28,7 @@ if you have the song project and/or can extract seperate instruments tracks then
 
 
 the `old gradient thingy.js` is just a thing i did ill prolly update it at some point. it changes every light of a specific chroma colour in a range, to be a gradient through the time that you set. could be for a long like slowly changing chroma colour or something, cool ok I wish i could tell you how it works but I forgor💀<br />
-dont worry theres comments i wrote like 2 months ago if u wanna use it<br />
+dont worry theres comments i wrote like 2 months ago if u wanna use it :D<br />
 
 # examples
 

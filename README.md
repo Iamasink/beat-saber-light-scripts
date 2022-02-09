@@ -16,11 +16,28 @@ IM so sorry if this is incomprehensiahjdsfkl
 
 Hi
 the `auto light from waveform.js` file has stuff at the top u can change them and then it does the stuff!!!!!! yayu!!!!! yay!!!!!!!!!!!!
-its mostly self explainatory but yeah
+its kinda self explainatory (to me because i wrote it) but 
+you get a file with sound as an mp3 and you can convert the waveform to chroma lights which is good for vocals because of yeah (i am lazy to do it, so made this.)
+you can use one of the ai services that try to extract vocals from a song, and it doesnt have to be perfect because you dont hear that audio.
+if you use an ai thingy, make sure the silence at the beginning (from audacity or whatever) is included, or it will be out of sync. (ie use song.ogg from your map)
+it will replace all lights of the type and lightID that you use. that is, you can use all other lights of the type (eg big rings, etc), and only the ids you set will be replaced, probably.
+this probably doesnt make sense lol sorry
+if you have the song project and/or can extract seperate instruments tracks then you can just  automaticaly light it,, yes? idk havent tried 
 
-the `old gradient thingy.js` is just a thing i did ill update it at some point it changes every light of a specific chroma colour in a range, to be a gradient through the time that you set. could be for a long like slowly changing chroma colour cool ok I wish i could tell you how it works but I forgor💀
+
+the `old gradient thingy.js` is just a thing i did ill prolly update it at some point. it changes every light of a specific chroma colour in a range, to be a gradient through the time that you set. could be for a long like slowly changing chroma colour or something, cool ok I wish i could tell you how it works but I forgor💀
 dont worry theres comments i wrote like 2 months ago 
 
+# examples
 
+https://www.youtube.com/watch?v=DK7vFGxD0VQ
+
+an older example with different settings
+https://streamable.com/89r8h9
+
+
+
+
+ok if u read this ily bye
 
 

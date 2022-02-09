@@ -17,9 +17,9 @@ you gotta download the zip then extract it and you can run the files with node i
 is there a better way to do this?? idk fuck you 
 
 Hi<br />
-the `auto light from waveform.js` file can be used to extract the audio levels from a mp3 file, and set chroma light levels based on that
+the `auto light from waveform.js` file can be used to extract the audio levels from a mp3 file, and set chroma light levels based on that<br/>
 it has stuff at the top u can change them and then it does the stuff!!!!!! yayu!!!!! yay!!!!!!!!!!!!<br/>
-its kinda self explainatory (to me because i wrote it) but 
+its kinda self explainatory (to me because i wrote it) but <br/>
 you get a file with sound as an mp3 and you can convert the waveform to chroma lights which is good for vocals because of yeah (i am lazy to do it, so made this.)<br />
 you can use one of the ai services that try to extract vocals from a song, and it doesnt have to be perfect because you dont hear that audio.<br />
 if you use an ai thingy, make sure the silence at the beginning (from audacity or whatever) is included, or it will be out of sync. (ie use song.ogg from your map)<br />

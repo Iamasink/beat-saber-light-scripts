@@ -10,6 +10,10 @@ its not even like i use these?? i just  omg help me im Sorry bye heres the   ins
 
 this is for chroma btw dont try and like do some funky stuff with not chroma cuz you will expericence great pain when i slap you in the face
 
+also feel free to like
+use this for whatever idc
+
+
 # how to use it??????
 uh ok so it should just workkkk but like you have to change some stuff<br />
 IM so sorry if this is incomprehensiahjdsfkl

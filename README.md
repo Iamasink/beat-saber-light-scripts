@@ -31,7 +31,7 @@ the `old gradient thingy.js` is just a thing i did ill prolly update it at some 
 dont worry theres comments i wrote like 2 months ago if u wanna use it :D<br />
 
 # examples
-
+using https://vocalremover.org/ , with the vocals set to the chevron light and music to the bottom (run the script twice on the same file)
 https://www.youtube.com/watch?v=DK7vFGxD0VQ
 
 an older example with different settings<br />

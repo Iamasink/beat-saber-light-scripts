@@ -1,5 +1,5 @@
 # beat-saber-light-scripts
- 
+ hi i have no idea what im doing btw so Yeah
  
  sorry idk markdown so this is formatted badly<br />
 hi ok i made some stuffs cuz<br />

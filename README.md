@@ -1,5 +1,5 @@
 # beat-saber-light-scripts
- 
+ hi i have no idea what im doing btw so Yeah
  
  sorry idk markdown so this is formatted badly<br />
 hi ok i made some stuffs cuz<br />
@@ -17,8 +17,9 @@ you gotta download the zip then extract it and you can run the files with node i
 is there a better way to do this?? idk fuck you 
 
 Hi<br />
-the `auto light from waveform.js` file has stuff at the top u can change them and then it does the stuff!!!!!! yayu!!!!! yay!!!!!!!!!!!!<br/>
-its kinda self explainatory (to me because i wrote it) but 
+the `auto light from waveform.js` file can be used to extract the audio levels from a mp3 file, and set chroma light levels based on that<br/>
+it has stuff at the top u can change them and then it does the stuff!!!!!! yayu!!!!! yay!!!!!!!!!!!!<br/>
+its kinda self explainatory (to me because i wrote it) but <br/>
 you get a file with sound as an mp3 and you can convert the waveform to chroma lights which is good for vocals because of yeah (i am lazy to do it, so made this.)<br />
 you can use one of the ai services that try to extract vocals from a song, and it doesnt have to be perfect because you dont hear that audio.<br />
 if you use an ai thingy, make sure the silence at the beginning (from audacity or whatever) is included, or it will be out of sync. (ie use song.ogg from your map)<br />
@@ -31,7 +32,7 @@ the `old gradient thingy.js` is just a thing i did ill prolly update it at some 
 dont worry theres comments i wrote like 2 months ago if u wanna use it :D<br />
 
 # examples
-
+using https://vocalremover.org/ , with the vocals set to the chevron light and music to the bottom (run the script twice on the same file)
 https://www.youtube.com/watch?v=DK7vFGxD0VQ
 
 an older example with different settings<br />

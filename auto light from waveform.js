@@ -5,13 +5,6 @@ maybe make it do chroma gradients? and changing colours at points and cool stuff
 
 FIX THE RWEPLACEMENT THINGY CUZ I WANNA USE ITT
 */
-
-
-
-
-
-
-
 AudioContext = require('web-audio-api').AudioContext
 context = new AudioContext
 fs = require('fs')
@@ -28,8 +21,15 @@ maximum = 0
 
 
 
+
+
+
+
+// change these stuff
+
+
 folder = "C:\\Program Files\\Steam\\steamapps\\common\\Beat Saber\\Beat Saber_Data\\CustomWIPLevels\\[map folder]\\" // folder to read from, remember double slashes
-    //folder = "F:\\Steam\\steamapps\\common\\Beat Saber\\Beat Saber_Data\\CustomWIPLevels\\map\\"
+    //folder = "F:\\Steam\\steamapps\\common\\Beat Saber\\Beat Saber_Data\\CustomWIPLevels\\test\\"
 
 soundFile = folder + "vocals.mp3" // sound file to sample
 mapFile = folder + "ExpertPlusStandard.dat" // map file to read
@@ -53,13 +53,10 @@ console.log(`bpm found to be ${bpm}`)
 
 
 console.log(`reading map\nsoundFile: ${soundFile}\nmapFile: ${mapFile}`)
-    //replaceEvents([0], [0], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10, 10, 0.05, 0.4, 0.2, 1) // bottom lights
+    //replaceEvents([0], [0], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10, 10, 0.05, 0.4, 0.2, 1) // bottom lights for default environment(?)
     // for the default environment, the back light is kinda messed up - in chromapper, light 12 is the left one, and 11 is the right, while its the opposite in game
 replaceEvents([4], [4], [12], [11], 12, 12, 0.05, 1, 0.2, 0.8)
-
-
-
-
+    // these are the main values you should change ^
 
 // channel0ReplaceTypes - array of types to replace for channel 0
 // channel1ReplaceTypes - array of types to replace for channel 1

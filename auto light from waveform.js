@@ -1,7 +1,14 @@
 /*
 todo stuff
 maybe make it do chroma gradients? and changing colours at points and cool stuffs like that ok
+
+
+FIX THE RWEPLACEMENT THINGY CUZ I WANNA USE ITT
 */
+
+
+
+
 
 
 
@@ -22,8 +29,9 @@ maximum = 0
 
 
 folder = "C:\\Program Files\\Steam\\steamapps\\common\\Beat Saber\\Beat Saber_Data\\CustomWIPLevels\\[map folder]\\" // folder to read from, remember double slashes
+    //folder = "F:\\Steam\\steamapps\\common\\Beat Saber\\Beat Saber_Data\\CustomWIPLevels\\map\\"
 
-soundFile = folder + "song.mp3" // sound file to sample
+soundFile = folder + "vocals.mp3" // sound file to sample
 mapFile = folder + "ExpertPlusStandard.dat" // map file to read
 writeFile = folder + "ExpertPlusLawless.dat" // map file to write to, advised to use a different name than the one you read from, as a backup (it might break.)
 if (!checkFiles()) {
@@ -45,7 +53,7 @@ console.log(`bpm found to be ${bpm}`)
 
 
 console.log(`reading map\nsoundFile: ${soundFile}\nmapFile: ${mapFile}`)
-    //replaceEvents([0], [0], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10, 0.05, 0.4, 0.2, 1) // bottom lights
+    //replaceEvents([0], [0], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10, 10, 0.05, 0.4, 0.2, 1) // bottom lights
     // for the default environment, the back light is kinda messed up - in chromapper, light 12 is the left one, and 11 is the right, while its the opposite in game
 replaceEvents([4], [4], [12], [11], 12, 12, 0.05, 1, 0.2, 0.8)
 
@@ -57,14 +65,13 @@ replaceEvents([4], [4], [12], [11], 12, 12, 0.05, 1, 0.2, 0.8)
 // channel1ReplaceTypes - array of types to replace for channel 1
 // channel0LightIDs - array of lightIDs to replace for channel 0
 // channel1LightIDs - array of lightIDs to replace for channel 1
-// channel0ReplaceMaximumLightID - the maximum lightID to replace for channel 0, set it to the highest lightid for the type
+// channel0ReplaceMaximumLightID - the maximum lightID to replace for channel 0, set it to the highest lightid for the type, can be 0 if you have no events
 // channel1ReplaceMaximumLightID - the maximum lightID to replace for channel 1, ''
 // sampleIntervalInSeconds - the interval to sample audio at, in seconds (0.05 is 50ms)
 // colorR,G,B - the color to replace the light with
 function replaceEvents(channel0ReplaceTypes, channel1ReplaceTypes, channel0LightIDs, channel1LightIDs, channel0ReplaceMaximumLightID, channel1ReplaceMaximumLightID, sampleIntervalInSeconds, colorR, colorG, colorB) {
 
     replaceLightIDs = channel0LightIDs.concat(channel1LightIDs)
-    replaceTypes = channel0ReplaceTypes.concat(channel1ReplaceTypes)
     readMap(mapFile)
 
     console.log(map)
@@ -267,7 +274,7 @@ function replaceEvents(channel0ReplaceTypes, channel1ReplaceTypes, channel0Light
         }
 
 
-
+        removeEventsWithNoLightIDs()
         writeMap(writeFile)
         console.log(`completed lul heres some info \nmaximum: ${maximum}\nmultiplier: ${multiplier}\n`)
 
@@ -323,102 +330,133 @@ function checkFiles() {
     return true
 }
 
+function removeEventsWithNoLightIDs() {
+    // loop through events, if there are no elements in customData._lightID, remove the event
+    for (i = 0; i < map._events.length; i++) {
+        console.log(`checking event ${i}`)
+        if (map._events[i].hasOwnProperty("_customData")) {
+            if (map._events[i]._customData.hasOwnProperty("_lightID")) {
+                if (map._events[i]._customData._lightID.length == 0) {
+                    console.log(`event ${i} has no lightID, so removing it`)
+                    map._events.splice(i, 1)
+                    i--
+                }
+            }
+        }
+    }
+}
+
 
 /// type: event type to search
 /// lightIDs: array of lightIDs to remove from events in type
 /// maximumLightID: the highest lightID for the event type, used to set all other lights
-function removeEventsForType(types, lightIDs, maximumLightID) {
+// this removes specific lightIDs from events in a type, while keeping the rest of the lights in the type the same
+function removeEventsForType(type, lightIDs, maximumLightID) {
     otherLights = []
 
 
-    newLightID = []
 
     newEvents = map._events
     toPush = {}
-    for (i = 0; i < types; i++) {
-        type = types[i]
 
 
-        // otherLights is an array of all the lights that are not in lightIDs
-        for (var j = 0; j <= maximumLightID; j++) {
-            if (!lightIDs.includes(j)) {
-                otherLights.push(j)
-            }
-        }
 
-        // for every event in the map
-        for (i in map._events) {
-            console.log(`\n\n Current event: ${i}`)
-
-            // if it matches type
-            if (map._events[i]._type == type) {
-                console.log(`type found ${type}`)
-                console.log(`${JSON.stringify(map._events[i])}`)
-                    // if it has customdata and lightIDs
-                console.log(`i = ${i}`)
-                if (map._events[i].hasOwnProperty("_customData") && map._events[i]._customData.hasOwnProperty("_lightID")) {
-                    newLightID = []
-
-                    for (var j = 0; j < map._events[i]._customData._lightID.length; j++) {
-                        console.log(`j = ${j}`)
-                        console.log(`lightid = ${map._events[i]._customData._lightID[j]}`)
-                        if (lightIDs.includes(map._events[i]._customData._lightID[j])) {
-                            console.log(`removed lightid ${map._events[i]._customData._lightID[j]}`)
-                        } else {
-                            newLightID.push(map._events[i]._customData._lightID[j])
-                        }
-                    }
-                    if (!newLightID.length) {
-                        console.log(`removed event ${i}`)
-
-                    }
-
-
-                } else {
-
-                    // if it doesn't have customdata or lightIDs
-                    console.log("event has no customData or lightIDs")
-                        // add lightid for all between 0 and maximumLightID, except lightIDs
-                    newLightID = []
-                    console.log(JSON.stringify(map._events[i]))
-                    for (var j = 0; j <= maximumLightID; j++) {
-
-                        if (!lightIDs.includes(j)) {
-                            newLightID.push(j)
-                            console.log(`added lightid ${j}`)
-
-                        } else {
-                            console.log("disallowed lightID")
-                        }
-                    }
-                    console.log(`newLightID = ${newLightID}`)
-                    toPush = map._events[i]
-                    console.log(`1 ${JSON.stringify(toPush)}`)
-
-                    if (!toPush.hasOwnProperty("_customData")) {
-                        toPush._customData = { "_lightID": newLightID }
-                    } else {
-                        toPush._customData._lightID = newLightID
-                    }
-                    console.log(`newEvets pushed ${JSON.stringify(toPush)}`)
-                    newEvents.push(toPush)
-
-
-                }
-                if (map._events[i]._value == 0) {
-                    toPush = map._events[i]
-                    toPush._value = 5
-                    toPush._customData._lightID = otherLights
-                    toPush._customData._color = [0, 0, 0, 1]
-                    newEvents.push(toPush)
-                    continue
-                }
-
-            } else {
-                newEvents.push(map._events[i])
-            }
+    // otherLights is an array of all the lights that are not in lightIDs
+    for (var j = 1; j <= maximumLightID; j++) {
+        if (!lightIDs.includes(j)) {
+            otherLights.push(j)
         }
     }
+
+    // for every event in the map
+    for (i in map._events) {
+        newLightID = []
+
+        console.log(`\n\n Current event: ${i}`)
+
+        // if it matches type       // i can probably make these two parts into one, but i'm too lazy to do it right now
+        if (map._events[i]._type == type) {
+            console.log(`type found ${type}`)
+            console.log(`${JSON.stringify(map._events[i])}`)
+                // if it has customdata and lightIDs
+            console.log(`i = ${i}`)
+            if (map._events[i].hasOwnProperty("_customData") && map._events[i]._customData.hasOwnProperty("_lightID")) {
+                newLightID = []
+
+                for (var j = 0; j < map._events[i]._customData._lightID.length; j++) {
+                    console.log(`j = ${j}`)
+                    console.log(`lightid = ${map._events[i]._customData._lightID[j]}`)
+                    if (lightIDs.includes(map._events[i]._customData._lightID[j])) {
+                        console.log(`removed lightid ${map._events[i]._customData._lightID[j]}`)
+
+                    } else {
+                        newLightID.push(map._events[i]._customData._lightID[j])
+                    }
+
+                }
+                toPush = map._events[i]
+                toPush._customData._lightID = newLightID
+                console.log(toPush)
+                newEvents.push(toPush)
+
+                if (!newLightID.length) {
+                    console.log(`event ${i} *should* be removed. but isn't yet`) // something messed up when i removed it here.
+
+                }
+
+
+
+            } else {
+
+                // if it doesn't have customdata or lightIDs
+                console.log("event has no customData or lightIDs")
+                    // add lightid for all between 0 and maximumLightID, except lightIDs
+                newLightID = []
+                console.log(JSON.stringify(map._events[i]))
+                console.log(`maximumLightID = ${maximumLightID}`)
+                for (var j = 1; j <= maximumLightID; j++) {
+                    console.log(`j = ${j}`)
+                    if (!lightIDs.includes(j)) {
+                        newLightID.push(j)
+                        console.log(`added lightid ${j}`)
+
+                    } else {
+                        console.log("disallowed lightID")
+                    }
+                }
+                console.log(`newLightID = ${newLightID}`)
+                toPush = map._events[i]
+                console.log(`1 ${JSON.stringify(toPush)}`)
+
+                if (!toPush.hasOwnProperty("_customData")) {
+                    toPush._customData = { "_lightID": newLightID }
+                }
+                if (toPush.hasOwnProperty("_customData")) {
+                    toPush._customData._lightID = newLightID
+                }
+                console.log(`newEvets pushed ${JSON.stringify(toPush)}`)
+                newEvents.push(toPush)
+
+
+            }
+            if (map._events[i]._value == 0) {
+                console.log(`otherLights = ${otherLights}`)
+                toPush = map._events[i]
+                toPush._value = 5
+                toPush._customData = {}
+                toPush._customData._lightID = otherLights
+                toPush._customData._color = [0, 0, 0, 1]
+                newEvents.push(toPush)
+                continue
+            }
+
+        } else {
+            newEvents.push(map._events[i])
+        }
+
+
+    }
+
 
 
     console.log(`newEvents = ${JSON.stringify(newEvents)}`)

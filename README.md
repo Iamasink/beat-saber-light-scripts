@@ -4,7 +4,7 @@ but ok i made some stuffs
 <br />
 
 this is for chroma btw dont try and like do some funky stuff with not chroma cuz you will expericence great pain when i slap you in the face <br />
-if youre insane or something, you can try use this for whatever. like.. credit me if you experience a vision from God and can use this to make something cooler
+if youre insane or something, you can try use this for whatever. like.. credit me if you experience a vision from God and can use this to make something cool
 
 
 # how to use it??????
@@ -14,7 +14,7 @@ first you can open the file in a editor and change stufffff like the map folder 
 you can run the files with node in command line `node.exe "auto light from waveform.js"`, or maybe you can run it in vscode but like, its slower i think.
 is there a better way to do this?? idk fuck you <br />
 <br />
-just a tip: for the default environment, the back light is kinda messed up - in chromapper, light 12 is the left one, and 11 is the right, while its the opposite in game
+just a tip: for the default environment (maybe others), the back chevron light is kinda messed up - in chromapper, light 12 is the left one, and 11 is the right, while its the opposite in game
 
 ### auto light from waveform.js
 the `auto light from waveform.js` file can be used to extract the audio levels from a mp3 file, and set chroma light levels based on that<br/>

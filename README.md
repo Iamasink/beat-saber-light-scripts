@@ -26,8 +26,8 @@ it has stuff at the top u can change them and then it does the stuff!!!!!! yayu!
 its kinda self explainatory (to me because i wrote it) but <br/>
 you get a file with sound as an mp3 and you can convert the waveform to chroma lights which is good for vocals because of yeah (i am lazy to do it, so made this.)<br />
 you can use one of the ai services that try to extract vocals from a song, and it doesnt have to be perfect because you dont hear that audio.<br />
-if you use an ai thingy, make sure the silence at the beginning (from audacity or whatever) is included, or it will be out of sync. (ie use song.ogg from your map)<br />
-it will replace all lights of the type and lightID that you use. that is, you can use all other lights of the type (eg big rings, etc), and only the ids you set will be replaced, probably.<br />
+make sure the silence at the beginning (from audacity or whatever) is included, or it will be out of sync. (ie use song.ogg from your map if using an ai, or add the silence manually if youre doing something funky)<br />
+~~it should replace all lights of the type and lightID that you use. that is, you can use all other lights of the type (eg big rings, etc), and only the ids you set will be replaced~~ this doesnt work atm. [Don't try it](https://twitter.com/iamasink/status/1491827271790960647)<br />
 this probably doesnt make sense lol sorry<br />
 if you have the song project and/or can extract seperate instruments tracks then you can just  automaticaly light it,, yes? idk havent tried <br />
 

@@ -4,7 +4,7 @@ but ok i made some stuffs
 <br />
 
 this is for chroma btw dont try and like do some funky stuff with not chroma cuz you will expericence great pain when i slap you in the face <br />
-if youre insane or something, you can try use this for whatever. like.. credit me if you experience a vision from God and can use this to make something cool
+if youre insane or something, you can try use this for whatever. like.. please credit me if you experience a vision from God and can use this to make something cool
 
 
 # how to use it??????
